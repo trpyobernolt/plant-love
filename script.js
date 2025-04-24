@@ -1,7 +1,7 @@
 const stages = ['images/plant1.png', 'images/plant1.png', 'images/plant2.png', 'images/plant3.png', 'images/plant4.png'];
 const messages = [
-    "hi love <3",
-  "Love is like a garden, it needs soil to grow and care to flourish 🌱",
+    "hi love 💕",
+  "Love is like a garden, it needs strong soil care to flourish 🌱",
   "Each day you water it, it grows stronger 🌿",
   "Like our love, it needs nurturing to thrive 🌼",
   "Will you build a garden and grow with me?",
