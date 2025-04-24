@@ -21,5 +21,12 @@ function updateUI() {
   document.getElementById('message').textContent = messages[stage];
 }
 
+function resetPlant() {
+    stage = 0;
+    localStorage.setItem('stage', stage);
+    updateUI();
+  }
+  
+
 // Load correct stage on visit
 window.onload = updateUI;
