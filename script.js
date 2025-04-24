@@ -1,9 +1,9 @@
 const stages = ['images/plant1.png', 'images/plant2.png', 'images/plant3.png', 'images/plant4.png'];
 const messages = [
-  "Day 1: A little love 💚",
-  "Day 2: You're helping me grow 🌿",
-  "Day 3: Look at me bloom 🌸",
-  "Fully grown! Just like my love for you ❤️"
+  "Love is like a garden, it needs soil to grow and care to flourish 🌱",
+  "Each day you water it, it grows stronger 🌿",
+  "Like our love, it needs nurturing to thrive 🌼",
+  "Will you build a garden and grow with me?",
 ];
 
 function getStage() {
@@ -25,6 +25,20 @@ function updateUI() {
   document.getElementById('message').textContent = messages[stage];
 }
 
+if (stage === stages.length - 1) {
+    resetButton.style.display = "inline-block";
+    
+    // 🎉 Confetti blast
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+  } else {
+    resetButton.style.display = "none";
+  }
+
+  
 function resetPlant() {
   localStorage.setItem('stage', 0);
   updateUI();
