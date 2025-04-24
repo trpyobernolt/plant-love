@@ -1,0 +1,17 @@
+body {
+    text-align: center;
+    font-family: sans-serif;
+    background: #fdf6f0;
+    padding: 50px;
+  }
+  img {
+    width: 200px;
+    transition: transform 0.3s ease;
+  }
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
