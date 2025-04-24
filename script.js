@@ -6,9 +6,12 @@ const messages = [
   "Fully grown! Just like my love for you ❤️"
 ];
 
-let stage = parseInt(localStorage.getItem('stage')) || 0;
+function getStage() {
+  return parseInt(localStorage.getItem('stage')) || 0;
+}
 
 function waterPlant() {
+  let stage = getStage();
   if (stage < stages.length - 1) {
     stage++;
     localStorage.setItem('stage', stage);
@@ -17,16 +20,17 @@ function waterPlant() {
 }
 
 function updateUI() {
+  const stage = getStage();
   document.getElementById('plant').src = stages[stage];
   document.getElementById('message').textContent = messages[stage];
 }
 
 function resetPlant() {
-    stage = 0;
-    localStorage.setItem('stage', stage);
-    updateUI();
-  }
-  
+  localStorage.setItem('stage', 0);
+  updateUI();
+}
+
+
 
 // Load correct stage on visit
 window.onload = updateUI;
