@@ -1,15 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Grow With Love</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1 id="message">Happy Birthday my love! 🎉💖</h1>
-  <img id="plant" src="images/plant1.png" alt="Plant stage 1">
+  <img id="plant" src="images/plant1.png" alt="Plant stage">
+
   <button onclick="waterPlant()">Water Me 💧</button>
   <button id="reset-button" onclick="resetPlant()">Start Over 🔄</button>
-  <script src="script.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const stages = [
+      'images/plant1.png',
+      'images/plant2.png',
+      'images/plant3.png',
+      'images/plant4.png',
+      'images/present.png'
+    ];
+
+    const messages = [
+      "Happy Birthday my love! 🎉💖",
+      "Love is like a garden, and on your birthday we plant something new 🌱",
+      "Each day I have watched you grow and change, and I love you more for it 🌿",
+      "With each passing day, your spirit grows brighter and more colorful 🌼",
+      "Your surprise is ready… go ahead and open your gift! 🎁💝"
+    ];
+
+    const resetButton = document.getElementById('reset-button');
+
+    function getStage() {
+      return parseInt(localStorage.getItem('stage')) || 0;
+    }
+
+    function waterPlant() {
+      let stage = getStage();
+      if (stage < stages.length - 1) {
+        stage++;
+        localStorage.setItem('stage', stage);
+      }
+      updateUI();
+    }
+
+    function resetPlant() {
+      localStorage.setItem('stage', 0);
+      updateUI();
+    }
+
+    function updateUI() {
+      const stage = getStage();
+      document.getElementById('plant').src = stages[stage];
+      document.getElementById('message').textContent = messages[stage];
+
+      if (stage === stages.length - 1) {
+        resetButton.style.display = "inline-block";
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+        document.getElementById('plant').classList.add('present-glow');
+        document.getElementById('plant').onclick = () => {
+          alert("Go ahead and open your real-life gift now 🎁💝");
+        };
+      } else {
+        resetButton.style.display = "none";
+        document.getElementById('plant').classList.remove('present-glow');
+        document.getElementById('plant').onclick = null;
+      }
+    }
+
+    window.onload = updateUI;
+  </script>
 </body>
 </html>
