@@ -1,10 +1,11 @@
-const stages = ['images/plant1.png', 'images/plant1.png', 'images/plant2.png', 'images/plant3.png', 'images/plant4.png'];
+const stages = ['images/plant1.png', 'images/plant1.png', 'images/plant2.png', 'images/plant3.png', 'images/plant4.png', "present.png"];
 const messages = [
     "Happy Birthday my love! 🎉💖",
   "Love is like a garden, and on your birthday we plant something new 🌱",
   "Each day I have watched you grow and change, and I love you more for it 🌿",
   "With each passing day, your spirit grows bigger and brighter, and more colorful 🌼",
-  "I have the privilege of watching you bloom, and I am so grateful for it 🌸 Will you build a garden with me?",
+  "I have the privilege of watching you bloom, and I am so grateful for it 🌸",
+  "Will you build a garden with me?",
 ];
 
 function getStage() {
